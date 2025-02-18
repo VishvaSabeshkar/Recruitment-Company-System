@@ -1,0 +1,15 @@
+.header .profile-icon {
+    width: 40px;
+    margin-left: 20px;
+    filter: invert(100%);
+    vertical-align: middle;
+}
+.header .sign-out {
+    vertical-align: middle;
+    font-size: 18px;
+    width: max-content;
+}
+.header .sign-out:hover {
+    background-color: blue;
+    cursor: pointer;
+}

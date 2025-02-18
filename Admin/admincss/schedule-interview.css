@@ -1,0 +1,11 @@
+.int-update {
+    background-color: blue;
+    padding: 5px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.int-delete {
+    background-color: red;
+    padding: 5px;
+    border-radius: 3px;
+}

@@ -1,0 +1,15 @@
+.header .profile-icon {
+    width: 60px;
+    border-radius: 30px;
+    margin-left: 20px;
+    vertical-align: middle;
+}
+.header .sign-out {
+    vertical-align: middle;
+    font-size: 18px;
+    width: max-content;
+}
+.header .sign-out:hover {
+    background-color: blue;
+    cursor: pointer;
+}

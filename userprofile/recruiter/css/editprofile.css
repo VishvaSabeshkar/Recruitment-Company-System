@@ -1,0 +1,272 @@
+/* =============== Globals ============== */
+* {
+    font-family: "Ubuntu", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #391e77;
+    --white: #fff;
+    --gray: #fff;
+    --black1: #222;
+    --black2: #999;
+  }
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+}
+
+.containe {
+    margin-top: 80px;
+    position: relative;
+    width: 100%;
+}
+
+/* =============== Navigation ================ */
+.navigation {
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue);
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.navigation.active {
+    width: 80px;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.navigation ul li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+    background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+
+.navigation ul li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+    color: var(--blue);
+}
+
+.navigation ul li a .icon {
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 75px;
+    text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+    font-size: 1.75rem;
+}
+
+.navigation ul li a .title {
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+/*---curving the outside---*/
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 35px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+.main {
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background: var(--gray);
+    transition: 0.5s;
+}
+
+.main.active {
+    width: calc(100% - 80px);
+    left: 80px;
+}
+.toggle {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    padding-left: 20px;
+    cursor: pointer;
+  }
+  
+
+
+
+
+.container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px 0;
+    max-width: 650px;
+    padding: 28px;
+    margin: 0 28px;
+    box-shadow: 0 15px 20px #ABB289;
+}
+h2 {
+    font-size: 26px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid silver;
+}
+
+.input-box {
+    display: flex;
+    font-weight: 600;
+    flex-wrap: wrap;
+    width: 50%;
+    padding-bottom: 15px;
+}
+.input-box:nth-child(2n) {
+    justify-content: space-between;
+}
+.input-box label, .gender {
+    width: 95%;
+    color: black;
+    font-weight: 600;
+    margin: 5px 0;
+}
+.gender {
+    font-size: 16px;
+}
+.input-box input{
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+.input-box input:is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.gender-category {
+    color: gray;
+}
+.gender-category lable {
+    padding: 0 20px 0 5px;
+    font-size: 14px;
+}
+.gender-category lable, .gender-category input {
+    cursor: pointer;
+}
+.button-container {
+    margin: 15px 0;
+    width: 100%;
+    margin-right: 20px;
+}
+
+
+.button-container button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    display: block;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #aa076b, #61045f);
+}
+.button-container button:hover {
+    background-image: linear-gradient(to right, #61045f, #aa076b);
+    cursor: pointer;
+}
+.button-container button:active {
+    background-image: black;
+    color: white;
+    cursor: pointer;
+}
+@media(max-width:600px) {
+    .content {
+        max-height: 380px;
+        overflow: auto;
+    }
+    .input-box {
+        margin-bottom: 12px;
+        width: 100%;
+    }
+    .input-box:nth-child(2n) {
+        justify-content: space-between;
+    }
+    .gender-category {
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+    }
+}
+

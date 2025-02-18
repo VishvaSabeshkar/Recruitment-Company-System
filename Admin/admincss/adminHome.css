@@ -1,0 +1,79 @@
+body {
+    margin-top: 100px;
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+}
+.add-new-user {
+    text-decoration: none;
+    font-size: 18px;
+    background-color: #512da8;
+    color: white;
+    margin-top: 15px;
+    margin-left: 15px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.add-new-user:hover {
+    background-color: #6739d3;
+    color: white;
+    transition: 0.18s;
+}
+
+caption {
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.user-info {
+    background-color: white;
+    margin-left: auto; /* Align to center */
+    margin-right: auto; /* Align to center */
+    border: 1px solid black; /* Increase border width for decoration */
+    border-collapse: collapse;
+    width: 90%; /* Reduce width to make it smaller */
+    table-layout: auto;
+}
+
+td {
+    text-align: center;
+    padding: 10px;
+}
+.job-info {
+    background-color: white;
+    margin-left: auto; /* Align to center */
+    margin-right: auto; /* Align to center */
+    border: 1px solid black; /* Increase border width for decoration */
+    border-collapse: collapse;
+    width: 90%; /* Reduce width to make it smaller */
+}
+.delete-btn {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color:red;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+.delete-btn a {
+    color: white;
+    text-decoration: none;
+}
+
+.update-btn {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color:blue;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+.update-btn a {
+    color: white;
+    text-decoration: none;
+}

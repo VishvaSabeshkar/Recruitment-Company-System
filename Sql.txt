@@ -1,0 +1,264 @@
+
+CREATE TABLE Admin (
+    admin_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE,
+    password VARCHAR(100),
+    contact_number VARCHAR(15) UNIQUE
+);
+
+
+CREATE TABLE Recruiter (
+    rid INT PRIMARY KEY AUTO_INCREMENT,
+    firstname VARCHAR(50),
+    lastname VARCHAR(50),
+    email VARCHAR(100) UNIQUE,
+    phone_num VARCHAR(20),
+    password VARCHAR(100),
+    company_name VARCHAR(100),
+    nic VARCHAR(15),
+    dob DATE
+);
+
+
+CREATE TABLE Interview (
+    interview_id INT PRIMARY KEY AUTO_INCREMENT,
+    place VARCHAR(100),
+    interview_date DATE,
+    interview_time TIME,
+    interview_panel VARCHAR(255),
+    admin_id INT,
+    FOREIGN KEY (admin_id) REFERENCES Admin(admin_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Applicant (
+    applicant_id INT PRIMARY KEY AUTO_INCREMENT,
+    firstname VARCHAR(50),
+    Lastname VARCHAR(50),
+    phone_num VARCHAR(20),
+    email VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    dob DATE,
+    Nic VARCHAR(15),
+    city VARCHAR(100),
+    county VARCHAR(100),
+    job_name VARCHAR(100),
+    interview_id INT,
+    FOREIGN KEY (interview_id) REFERENCES Interview(interview_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Job (
+    jobid INT PRIMARY KEY AUTO_INCREMENT,
+    description TEXT,
+    company VARCHAR(100),
+    skill VARCHAR(255),
+    experience VARCHAR(50),
+    salary DECIMAL(10, 2),
+    jobtitle VARCHAR(100),
+    deadline DATE,
+    edu_qul VARCHAR(255),
+    recruiter_id INT,
+    admin_id INT,
+    FOREIGN KEY (recruiter_id) REFERENCES Recruiter(rid) ON DELETE CASCADE,
+    FOREIGN KEY (admin_id) REFERENCES Admin(admin_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Application (
+    application_id INT PRIMARY KEY AUTO_INCREMENT,
+    firstname VARCHAR(50),
+    lastname VARCHAR(50),
+    dob DATE,
+    nic VARCHAR(15),
+    phone_num INT(20),
+    skill_achievement TEXT,
+    skill_cat VARCHAR(100),
+    tech_skill_cat VARCHAR(100),
+    company_name VARCHAR(100),
+    job_title VARCHAR(100),
+    domain_skill_cat VARCHAR(100),
+    degree_start_year INT,
+    degree_end_year INT,
+    edu_level VARCHAR(100),
+    field_of_study VARCHAR(100),
+    degree_obt VARCHAR(100),
+    inst_name VARCHAR(100),
+    address TEXT,
+    linkedin VARCHAR(255),
+    applicant_id INT,
+    job_id INT,
+    FOREIGN KEY (applicant_id) REFERENCES Applicant(applicant_id) ON DELETE CASCADE,
+    FOREIGN KEY (job_id) REFERENCES Job(jobid) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Certifications (
+    certification_id INT PRIMARY KEY AUTO_INCREMENT,
+    certification_name VARCHAR(100),
+    application_id INT,
+    FOREIGN KEY (application_id) REFERENCES Application(application_id) ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE Feedback (
+    feedback_id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50),
+    rating INT,
+    comment TEXT,
+    admin_id INT,
+    recruiter_id INT,
+    applicant_id INT,
+    FOREIGN KEY (admin_id) REFERENCES Admin(admin_id) ON DELETE CASCADE,
+    FOREIGN KEY (recruiter_id) REFERENCES Recruiter(rid) ON DELETE CASCADE,
+    FOREIGN KEY (applicant_id) REFERENCES Applicant(applicant_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE talentPool (
+    talentPoolID INT AUTO_INCREMENT PRIMARY KEY,
+    applicant_id INT,
+    fullName VARCHAR(100) NOT NULL,
+    dob DATE,
+    gender ENUM('male', 'female', 'other') NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    eduLevel VARCHAR(50) NOT NULL,
+    skills TEXT NOT NULL,
+    workExperience TEXT NOT NULL,
+    salaryExpected DECIMAL(10, 2) NOT NULL,
+    submissionDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (applicant_id) REFERENCES Applicant(applicant_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE TalentPoolCourses (
+    courseID INT AUTO_INCREMENT PRIMARY KEY,
+    talentPoolID INT,
+    courseName VARCHAR(100),
+    FOREIGN KEY (talentPoolID) REFERENCES talentPool(talentPoolID) ON DELETE CASCADE
+);
+
+
+CREATE TABLE IF NOT EXISTS Questions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fullName VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    telephone VARCHAR(20),
+    question TEXT NOT NULL
+);
+
+
+
+
+
+
+
+
+INSERT INTO Admin (username, password, contact_number) VALUES
+('Sonal Ariyarathna', 'SonalAriyarathna@456', '1234567890'),
+('Yeshminda De silva', 'YeshmindaDesilva@456', '0987654321'),
+('Samith Perera', 'SamithPerera@456', '1112223333'),
+('Navodya Kariyawasam', 'NavodyaKariyawasam@456', '4445556666'),
+('Sineth Perera', 'SinethPerera@456', '7778889999');
+
+
+
+INSERT INTO Recruiter (firstname, lastname, email, phone_num, password, company_name, nic, dob) VALUES
+('Dilshan', 'Amarasinghe', 'DilshanAmarasinghe@gmail.com', '123456789', 'DilshanAmarasinghe@123', 'ABC Corp', '1234567891234', '1990-05-20'),
+('Malith', 'perera', 'Malithperera@gmail.com', '987654321', 'Malithperera@123', 'XYZ Corp', '9876543219876', '1985-10-15'),
+('Kavindu', 'Samaraweera', 'KavinduSamaraweera@gmail.com', '555666777', 'KavinduSamaraweera@123', 'DEF Corp', '1112223334445', '1988-08-30'),
+('Thilini', 'De Silva', 'ThiliniDeSilva@gmail.com', '999888777', 'ThiliniDeSilva@123', 'GHI Corp', '5556667778889', '1992-03-25'),
+('Janith', 'Bandara', 'JanithBandara@gamil.com', '333222111', 'JanithBandara@123', 'JKL Corp', '9998887776663', '1980-12-10');
+
+
+
+
+INSERT INTO Interview (place, interview_date, interview_time, interview_panel, admin_id) VALUES
+('Kegalle', '2024-04-10', '09:00:00', 'Vishwa Gunawardhana, Nimali Senarath', 1),
+('Galle ', '2024-04-12', '10:30:00', 'Roshan Bandara', 2),
+('Ampara', '2024-04-15', '11:00:00', 'Malith Fernando, Sajitha Gunawardena', 3),
+('Kurunegala', '2024-04-18', '14:00:00', 'Piyumi Ranasinghe', 4),
+('Colombo', '2024-04-20', '15:30:00', 'Udara Liyanage,Isuru Mendis', 5);
+
+
+
+INSERT INTO Applicant (firstname, Lastname, phone_num, email, password, dob, Nic, city, county, job_name, interview_id) VALUES
+('Thilina', 'De Silva', '111222333', 'ThilinaDeSilva@gmail.com', 'ThilinaDeSilva@123', '1995-08-15', '1234567891234', ' Kurunegala', 'Sri Lanka', 'Software Engineer', 1),
+('Sakila', 'Athapaththu', '444555666', 'SakilaAthapaththu@gmail.com', 'SakilaAthapaththu@123', '1990-06-25', '9876543219876', 'Galle', 'Sri Lanka', 'Data Scientist', 2),
+('Thamindu', 'Rajapakshe', '777888999', 'ThaminduRajapakshe@gmail.com', 'ThaminduRajapakshe@123', '1993-11-12', '5554443332221', 'Kegalle', 'Sri Lanka', 'Web Developer', 3),
+('Praveen', 'Liyanage', '333222111', 'PraveenLiyanage@gmail.com', 'PraveenLiyanage@123', '1998-02-28', '1112223334445', 'Colombo', 'Sri Lanka', 'Data Analyst', 4),
+('chamalie', 'Dissanayake', '999888777', 'chamalieDissanayake@gmail.com', 'chamalieDissanayake@123', '1992-07-20', '7778889996663', 'Ampara', 'Sri Lanka', 'UX Designer', 5);
+
+
+
+
+INSERT INTO Job (description, company, skill, experience, salary, jobtitle, deadline, edu_qul, recruiter_id, admin_id) VALUES
+('Description for Software Engineer position', 'ABC Corp', 'Java, SQL', '3 years', 80000.00, 'Software Engineer', '2024-05-15', 'Bachelor\'s Degree in Computer Science', 1, 1),
+('Description for Data Scientist position', 'XYZ Corp', 'Python, R', '5 years', 100000.00, 'Data Scientist', '2024-05-20', 'Master\'s Degree in Data Science', 2, 2),
+('Description for Web Developer position', 'DEF Corp', 'HTML, CSS, JavaScript', '2 years', 60000.00, 'Web Developer', '2024-05-18', 'Bachelor\'s Degree in Computer Science', 3, 3),
+('Description for Data Analyst position', 'GHI Corp', 'SQL, Excel', '1 year', 55000.00, 'Data Analyst', '2024-05-22', 'Bachelor\'s Degree in Statistics', 4, 4),
+('Description for UX Designer position', 'JKL Corp', 'UI/UX Design, Adobe XD', '3 years', 70000.00, 'UX Designer', '2024-05-25', 'Bachelor\'s Degree in Graphic Design', 5, 5);
+
+
+
+
+INSERT INTO Application (firstname, lastname, dob, nic, phone_num, skill_achievement, skill_cat, tech_skill_cat, company_name, job_title, domain_skill_cat, degree_start_year, degree_end_year, edu_level, field_of_study, degree_obt, inst_name, address, linkedin, applicant_id, job_id) VALUES
+('Thilina', 'De Silva', '1995-08-15', '1234567891234', '111222333', 'Certified in Java programming', 'Programming', 'Java, SQL', 'ABC Corp', 'Software Engineer', 'Computer Science', 2014, 2018, 'Bachelor\'s', 'Computer Science', 'BSc Computer Science', 'XYZ University', 'City A', 'https://linkedin.com/alice', 1, 1),
+('Sakila', 'Athapaththu', '1990-06-25', '9876543219876', '444555666', 'Data Science Bootcamp completion', 'Data Science', 'Python, R', 'XYZ Corp', 'Data Scientist', 'Data Analysis', 2010, 2015, 'Master\'s', 'Data Science', 'MSc Data Science', 'ABC University', 'City B', 'https://linkedin.com/bob', 2, 2),
+('Thamindu', 'Rajapakshe', '1993-11-12', '5554443332221', '777888999', 'Front-end development project', 'Web Development', 'HTML, CSS, JavaScript', 'DEF Corp', 'Web Developer', 'Web Design', 2015, 2019, 'Bachelor\'s', 'Computer Science', 'BSc Computer Science', 'XYZ University', 'City C', 'https://linkedin.com/emma', 3, 3),
+('Praveen', 'Liyanage', '1998-02-28', '1112223334445', '333222111', 'Statistical analysis project', 'Data Analysis', 'SQL, Excel', 'GHI Corp', 'Data Analyst', 'Statistics', 2016, 2020, 'Bachelor\'s', 'Statistics', 'BSc Statistics', 'ABC University', 'City D', 'https://linkedin.com/james', 4, 4),
+('chamalie', 'Dissanayake', '1992-07-20', '7778889996663', '999888777', 'UI/UX design project', 'UI/UX Design', 'UI/UX Design, Adobe XD', 'JKL Corp', 'UX Designer', 'Graphic Design', 2013, 2017, 'Bachelor\'s', 'Graphic Design', 'BFA Graphic Design', 'XYZ University', 'City E', 'https://linkedin.com/sophia', 5, 5);
+
+
+
+
+INSERT INTO Certifications (certification_name, application_id) VALUES
+('Oracle Certified Java Programmer', 1),
+('Data Science Professional Certificate', 2),
+('Front-end Development Certificate', 3),
+('Statistical Analysis Certificate', 4),
+('UI/UX Design Certificate', 5);
+
+
+
+
+
+INSERT INTO Feedback (username, rating, comment, admin_id, recruiter_id, applicant_id) VALUES
+('admin1', 4, 'Good communication skills', 1, NULL, NULL),
+('admin2', 5, 'Very professional', NULL, 1, NULL),
+('admin3', 3, 'Could improve technical skills', 2, NULL, NULL),
+(NULL, 5, 'Highly skilled and motivated candidate', NULL, 2, NULL),
+('admin4', 4, 'Impressive portfolio', 3, NULL, NULL),
+(NULL, 5, 'Excellent problem-solving abilities', NULL, NULL, 3),
+('admin5', 4, 'Great attention to detail', 4, NULL, NULL),
+('recruiter1', 5, 'Responsive and cooperative', NULL, 4, NULL),
+(NULL, 3, 'Needs to work on time management', NULL, NULL, 4),
+('recruiter2', 4, 'Strong analytical skills', NULL, 5, NULL),
+(NULL, 5, 'Outstanding creativity and design sense', NULL, NULL, 5);
+
+
+
+
+
+INSERT INTO talentPool (applicant_id, fullName, dob, gender, city, email, eduLevel, skills, workExperience, salaryExpected) VALUES
+(1, 'Alice Johnson', '1995-08-15', 'female', 'City A', 'alice@example.com', 'Bachelor\'s', 'Java, SQL', '3 years as a software engineer', 85000.00),
+(2, 'Bob Smith', '1990-06-25', 'male', 'City B', 'bob@example.com', 'Master\'s', 'Python, R', '5 years as a data scientist', 110000.00),
+(3, 'Emma Williams', '1993-11-12', 'female', 'City C', 'emma@example.com', 'Bachelor\'s', 'HTML, CSS, JavaScript', '2 years as a web developer', 75000.00),
+(4, 'James Jones', '1998-02-28', 'male', 'City D', 'james@example.com', 'Bachelor\'s', 'SQL, Excel', '1 year as a data analyst', 60000.00),
+(5, 'Sophia Davis', '1992-07-20', 'female', 'City E', 'sophia@example.com', 'Bachelor\'s', 'UI/UX Design, Adobe XD', '3 years as a UX designer', 90000.00);
+
+
+
+
+INSERT INTO TalentPoolCourses (talentPoolID, courseName) VALUES
+(1, 'Advanced SQL Programming'),
+(2, 'Machine Learning with Python'),
+(3, 'Web Development Bootcamp'),
+(4, 'Statistics for Data Analysis'),
+(5, 'User Interface Design Fundamentals');
+
+
+
+

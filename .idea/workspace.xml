@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9213f6d8-2e1f-4637-bdb3-507e3cf9057f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/talent/.vscode/settings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/talent/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/talent/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/css/talentPool.css" beforeDir="false" afterPath="$PROJECT_DIR$/talent/css/talentPool.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/css/talentPoolCards.css" beforeDir="false" afterPath="$PROJECT_DIR$/talent/css/talentPoolCards.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/index.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/talent/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/php/connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/talent/php/connection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/php/delete_applicant.php" beforeDir="false" afterPath="$PROJECT_DIR$/talent/php/delete_applicant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/php/talentPoolApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/talent/php/talentPoolApplication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/php/talentPoolCards.php" beforeDir="false" afterPath="$PROJECT_DIR$/talent/php/talentPoolCards.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/php/update.php" beforeDir="false" afterPath="$PROJECT_DIR$/talent/php/update.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/php/update_applicant.php" beforeDir="false" afterPath="$PROJECT_DIR$/talent/php/update_applicant.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/talent/php/yourTalentPool.php" beforeDir="false" afterPath="$PROJECT_DIR$/talent/php/yourTalentPool.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/talent" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2gVj7v7TwDKYUVZ5nigeYoWxXFt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9213f6d8-2e1f-4637-bdb3-507e3cf9057f" name="Changes" comment="" />
+      <created>1715789476764</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1715789476764</updated>
+    </task>
+    <servers />
+  </component>
+</project>

@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin-top: 100px;
+    background-color: #c9d6ff;
+    background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+}
+.user-logo, .email-logo, .job-logo, .location-logo {
+    width: 25px;
+}
+.back-to-interview {
+    background-color: #512da8;
+    color: white;
+    padding: 10px;
+    margin-left: 10px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.back-to-interview:hover {
+    background-color: #5c6bc0;
+}
+
+.interview-container {
+    display: flex;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    background: #fff;
+    margin: 50px auto;
+    padding: 20px 60px 40px 40px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.interview-container .interview-form-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+}
+.interview-container .interview-form-content .left-side {
+    width: max-content;
+    height: 100%;
+}
+.interview-container .interview-form-content .right-side {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.row-1 {
+    display: flex;
+    align-items: center; /* Align items vertically center */
+    justify-content: space-between;
+}
+
+.row-1 label {
+    margin-right: 10px; /* Adjust margin as needed */
+}
+
+.interview-user {
+    font-weight: bold;
+    font-size: 25px;
+}
+.company-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+.set-interview {
+    color: red;
+    font-weight: 500;
+}
+input, textarea {
+    background-color: rgb(244, 241, 241);
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.set-interview-details .row-1 {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.row-2 input[type="text"] {
+    width: 100%; /* Set width to 100% to fill the entire width of its container */
+    background-color: rgb(244, 241, 241);
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+}
+
+.schedule-btn {
+    font-size: 18px;
+    border: none;
+    padding: 8px;
+    margin: 0;
+    width: max-content;
+    border-radius: 5px;
+    background-color: #512da8;
+    color: white;
+    transition: 0.2s;
+}
+.schedule-btn:hover {
+    background-color: #5c6bc0;
+    cursor: pointer;
+}

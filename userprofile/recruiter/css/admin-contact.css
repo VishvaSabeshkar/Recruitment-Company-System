@@ -1,0 +1,13 @@
+.admin-container {
+    margin-top: 75vh;
+    margin-right: 350px;
+    background-color: #512da8;
+    color: white;
+    padding: 50px;
+    border-radius: 30px;
+
+}
+
+.email {
+    text-transform: lowercase;
+}

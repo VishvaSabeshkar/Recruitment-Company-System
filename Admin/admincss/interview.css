@@ -1,0 +1,26 @@
+.interview-schedule {
+    background-color: white;
+    margin-left: auto; /* Align to center */
+    margin-right: auto; /* Align to center */
+    border: 1px solid black; /* Increase border width for decoration */
+    border-collapse: collapse;
+    width: 90%; /* Reduce width to make it smaller */
+    table-layout: auto;
+}
+td {
+    text-align: center;
+    padding: 20px;
+}
+.schedule {
+    font-size: 16px;
+    border: none;
+    background-color: purple;
+    color: white;
+    width: max-content;
+    padding: 10px;
+    border-radius: 5px;
+}
+.schedule a {
+    color: white;
+    text-decoration: none;
+}
